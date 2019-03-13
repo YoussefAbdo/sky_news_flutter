@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "171792977768",
+    "firebase_url": "https://news-760e3.firebaseio.com",
+    "project_id": "news-760e3",
+    "storage_bucket": "news-760e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171792977768:android:8607b058f621e037",
+        "android_client_info": {
+          "package_name": "com.youssef.skynewsflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171792977768-da4u2dfkhme3ef3q8nir7c5oj5183llt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhYhnOiCaDU8Leneo7lvXXgeD3OXZdzSs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
