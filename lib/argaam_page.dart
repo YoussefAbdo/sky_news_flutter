@@ -2,18 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert' as convert;
-
-//pages
 import './description_page.dart';
 
-class ArticlesPage extends StatefulWidget {
+class ArgaamPage extends StatefulWidget {
   @override
-  _ArticlesPage createState() => new _ArticlesPage();
+  _ArgaamPage createState() => new _ArgaamPage();
 }
 
-class _ArticlesPage extends State<ArticlesPage> {
+class _ArgaamPage extends State<ArgaamPage> {
 
-  String url = 'https://newsapi.org/v2/top-headlines?country=sa&apiKey=597ac250047845ad8e1fa41510638df2';
+  String url = 'https://newsapi.org/v2/top-headlines?sources=argaam&apiKey=597ac250047845ad8e1fa41510638df2';
   List data;
 
   Future<String> makeRequest() async {
@@ -38,18 +36,18 @@ class _ArticlesPage extends State<ArticlesPage> {
     return new MaterialApp(
       home: Scaffold(
           appBar: new AppBar(
-            title: new Text('Saudi Arabia news'),
+            title: new Text('Argaam news'),
           ),
           body: new ListView.separated(
-            itemCount: data == null? 0:data.length,
+              itemCount: data == null? 0:data.length,
               separatorBuilder: (context, i) =>Divider(
                   color: Colors.black
               ),
               itemBuilder: (BuildContext context, i) {
                 return new ListTile(
                   title: new Text(data[i]["title"],
-                  textDirection: TextDirection.ltr,),
-                  leading: new CircleAvatar(
+                    textDirection: TextDirection.rtl,),
+                  trailing: new CircleAvatar(
                     backgroundImage: new NetworkImage(data[i]["urlToImage"]),
                   ),
                   onTap: () {
