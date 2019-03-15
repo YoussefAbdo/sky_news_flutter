@@ -5,9 +5,7 @@ class DescriptionPage extends StatelessWidget {
   final data;
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Welcome to Flutter',
-      home: Scaffold(
+    return new Scaffold(
         appBar: AppBar(
           title: Text(data["title"]),
         ),
@@ -25,8 +23,7 @@ class DescriptionPage extends StatelessWidget {
 
         ),
       ),
-      ),
-    );
+      );
   }
 }
 

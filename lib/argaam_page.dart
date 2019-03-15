@@ -33,8 +33,7 @@ class _ArgaamPage extends State<ArgaamPage> {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: Scaffold(
+    return new Scaffold(
           appBar: new AppBar(
             title: new Text('Argaam news'),
           ),
@@ -57,7 +56,6 @@ class _ArgaamPage extends State<ArgaamPage> {
                   },
                 );
               })
-      ),
     );
   }
 }

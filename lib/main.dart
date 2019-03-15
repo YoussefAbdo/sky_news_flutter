@@ -4,7 +4,8 @@ import 'dart:async';
 import 'dart:convert' as convert;
 import 'package:firebase_admob/firebase_admob.dart';
 import 'dart:io' show Platform;
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:async_loader/async_loader.dart';
 
 //pages
 import './about_page.dart';
@@ -29,13 +30,17 @@ MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
   testDevices: <String>[], // Android emulators are considered test devices
 );
 
-InterstitialAd myInterstitial;
 
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -47,6 +52,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -77,21 +83,21 @@ class _MyHomePageState extends State<MyHomePage> {
     timer = Timer.periodic(Duration(seconds: 10), (Timer t) => showAd());
   }
 
-  void showToastMessage(String message) {
-    Fluttertoast.showToast(
-        msg: message,
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.BOTTOM,
-        timeInSecForIos: 1,
-        backgroundColor: Colors.blue,
-        textColor: Colors.white,
-        fontSize: 12.0
-    );
-  }
+//  void showToastMessage(String message) {
+//    Fluttertoast.showToast(
+//        msg: message,
+//        toastLength: Toast.LENGTH_SHORT,
+//        gravity: ToastGravity.BOTTOM,
+//        timeInSecForIos: 1,
+//        backgroundColor: Colors.blue,
+//        textColor: Colors.white,
+//        fontSize: 12.0
+//    );
+//  }
 
   void showAd () {
 
-    myInterstitial = InterstitialAd(
+    InterstitialAd myInterstitial = InterstitialAd(
       // Replace the testAdUnitId with an ad unit id from the AdMob dash.
       // https://developers.google.com/admob/android/test-ads
       // https://developers.google.com/admob/ios/test-ads
@@ -110,7 +116,8 @@ class _MyHomePageState extends State<MyHomePage> {
       );
 
     myInterstitial.dispose();
-  }
+    }
+
 
   @override
   void dispose() {
@@ -165,7 +172,8 @@ class _MyHomePageState extends State<MyHomePage> {
             new ListTile(
               title: new Text('Argaam News'),
               onTap: () {
-                Navigator.of(context).pop();
+                Navigator.pop(context);
+                //Navigator.of(context).pop();
                 Navigator.push(
                     context,
                     new MaterialPageRoute(
@@ -176,7 +184,7 @@ class _MyHomePageState extends State<MyHomePage> {
             new ListTile(
               title: new Text('About Page'),
               onTap: () {
-                Navigator.of(context).pop();
+                Navigator.pop(context);
                 Navigator.push(
                     context,
                     new MaterialPageRoute(

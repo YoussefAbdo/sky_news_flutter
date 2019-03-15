@@ -35,8 +35,7 @@ class _ArticlesPage extends State<ArticlesPage> {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: Scaffold(
+    return new Scaffold(
           appBar: new AppBar(
             title: new Text('Saudi Arabia news'),
           ),
@@ -59,7 +58,6 @@ class _ArticlesPage extends State<ArticlesPage> {
                   },
                 );
               })
-      ),
     );
   }
 }

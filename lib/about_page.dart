@@ -8,15 +8,13 @@ class AboutPage extends StatefulWidget {
 class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: Scaffold(
+    return new Scaffold(
       appBar: new AppBar(
         title: new Text('About Page'),
       ),
         body: Center(
           child: Text('This application is made by Youssef!'),
         )
-      ),
     );
   }
 }
