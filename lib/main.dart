@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:convert' as convert;
 import 'package:firebase_admob/firebase_admob.dart';
 import 'dart:io' show Platform;
+import 'package:fluttertoast/fluttertoast.dart';
 
 //pages
 import './about_page.dart';
@@ -19,6 +20,8 @@ import './description_page.dart';
     ? "ca-app-pub-7444470694788180~6841715455"
     : "ca-app-pub-7444470694788180~4898078390";
 
+  Timer timer;
+
 MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
   keywords: <String>['flutterio', 'beautiful apps'],
   contentUrl: 'https://flutter.io',
@@ -26,28 +29,7 @@ MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
   testDevices: <String>[], // Android emulators are considered test devices
 );
 
-BannerAd myBanner = BannerAd(
-  // Replace the testAdUnitId with an ad unit id from the AdMob dash.
-  // https://developers.google.com/admob/android/test-ads
-  // https://developers.google.com/admob/ios/test-ads
-  adUnitId: BannerAd.testAdUnitId,
-  size: AdSize.smartBanner,
-  targetingInfo: targetingInfo,
-  listener: (MobileAdEvent event) {
-    print("BannerAd event is $event");
-  },
-);
-
-InterstitialAd myInterstitial = InterstitialAd(
-  // Replace the testAdUnitId with an ad unit id from the AdMob dash.
-  // https://developers.google.com/admob/android/test-ads
-  // https://developers.google.com/admob/ios/test-ads
-  adUnitId: adUnitId,
-  targetingInfo: targetingInfo,
-  listener: (MobileAdEvent event) {
-    print("InterstitialAd event is $event");
-  },
-);
+InterstitialAd myInterstitial;
 
 
 void main() => runApp(MyApp());
@@ -92,6 +74,48 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     FirebaseAdMob.instance.initialize(appId: adAppId);
     this.makeRequest();
+    timer = Timer.periodic(Duration(seconds: 10), (Timer t) => showAd());
+  }
+
+  void showToastMessage(String message) {
+    Fluttertoast.showToast(
+        msg: message,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIos: 1,
+        backgroundColor: Colors.blue,
+        textColor: Colors.white,
+        fontSize: 12.0
+    );
+  }
+
+  void showAd () {
+
+    myInterstitial = InterstitialAd(
+      // Replace the testAdUnitId with an ad unit id from the AdMob dash.
+      // https://developers.google.com/admob/android/test-ads
+      // https://developers.google.com/admob/ios/test-ads
+      adUnitId: adUnitId,
+      targetingInfo: targetingInfo,
+      listener: (MobileAdEvent event) {
+        print("InterstitialAd event is $event");
+      },
+    );
+
+    myInterstitial
+      ..load()
+      ..show(
+        anchorType: AnchorType.bottom,
+        anchorOffset: 0.0,
+      );
+
+    myInterstitial.dispose();
+  }
+
+  @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
   }
 
   @override
@@ -163,12 +187,7 @@ class _MyHomePageState extends State<MyHomePage> {
             new ListTile(
               title: new Text('Show Interstitial Ad'),
               onTap: () {
-                myInterstitial
-                  ..load()
-                  ..show(
-                    anchorType: AnchorType.bottom,
-                    anchorOffset: 0.0,
-                  );
+                showAd();
               },
             ),
           ],
