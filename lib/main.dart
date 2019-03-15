@@ -2,12 +2,53 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert' as convert;
+import 'package:firebase_admob/firebase_admob.dart';
+import 'dart:io' show Platform;
 
 //pages
 import './about_page.dart';
 import './articles_page.dart';
 import './argaam_page.dart';
 import './description_page.dart';
+
+ final String adUnitId = Platform.isAndroid
+    ? 'ca-app-pub-3940256099942544/1033173712'
+    : 'ca-app-pub-3940256099942544/4411468910';
+
+  final String adAppId = Platform.isAndroid
+    ? "ca-app-pub-7444470694788180~6841715455"
+    : "ca-app-pub-7444470694788180~4898078390";
+
+MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
+  keywords: <String>['flutterio', 'beautiful apps'],
+  contentUrl: 'https://flutter.io',
+  childDirected: false,
+  testDevices: <String>[], // Android emulators are considered test devices
+);
+
+BannerAd myBanner = BannerAd(
+  // Replace the testAdUnitId with an ad unit id from the AdMob dash.
+  // https://developers.google.com/admob/android/test-ads
+  // https://developers.google.com/admob/ios/test-ads
+  adUnitId: BannerAd.testAdUnitId,
+  size: AdSize.smartBanner,
+  targetingInfo: targetingInfo,
+  listener: (MobileAdEvent event) {
+    print("BannerAd event is $event");
+  },
+);
+
+InterstitialAd myInterstitial = InterstitialAd(
+  // Replace the testAdUnitId with an ad unit id from the AdMob dash.
+  // https://developers.google.com/admob/android/test-ads
+  // https://developers.google.com/admob/ios/test-ads
+  adUnitId: adUnitId,
+  targetingInfo: targetingInfo,
+  listener: (MobileAdEvent event) {
+    print("InterstitialAd event is $event");
+  },
+);
+
 
 void main() => runApp(MyApp());
 
@@ -32,7 +73,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  String url = 'https://newsapi.org/v2/top-headlines?country=sa&apiKey=597ac250047845ad8e1fa41510638df2';
+  String url = 'https://newsapi.org/v2/top-headlines?country=eg&apiKey=597ac250047845ad8e1fa41510638df2';
   List data;
 
   Future<String> makeRequest() async {
@@ -49,6 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
+    FirebaseAdMob.instance.initialize(appId: adAppId);
     this.makeRequest();
   }
 
@@ -116,6 +158,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     new MaterialPageRoute(
                         builder: (BuildContext context) => new AboutPage())
                 );
+              },
+            ),
+            new ListTile(
+              title: new Text('Show Interstitial Ad'),
+              onTap: () {
+                myInterstitial
+                  ..load()
+                  ..show(
+                    anchorType: AnchorType.bottom,
+                    anchorOffset: 0.0,
+                  );
               },
             ),
           ],
