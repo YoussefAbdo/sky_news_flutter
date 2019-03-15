@@ -6,6 +6,8 @@ import 'package:firebase_admob/firebase_admob.dart';
 import 'dart:io' show Platform;
 //import 'package:fluttertoast/fluttertoast.dart';
 //import 'package:async_loader/async_loader.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+
 
 //pages
 import './about_page.dart';
@@ -61,7 +63,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  String url = 'https://newsapi.org/v2/top-headlines?country=eg&apiKey=597ac250047845ad8e1fa41510638df2';
+  String url = 'https://newsapi.org/v2/top-headlines?country=ar&apiKey=597ac250047845ad8e1fa41510638df2';
   List data;
 
   Future<String> makeRequest() async {
@@ -78,9 +80,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
+    super.initState();
     FirebaseAdMob.instance.initialize(appId: adAppId);
+    final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+    _firebaseMessaging.requestNotificationPermissions();
     this.makeRequest();
     timer = Timer.periodic(Duration(seconds: 10), (Timer t) => showAd());
+
   }
 
 //  void showToastMessage(String message) {
