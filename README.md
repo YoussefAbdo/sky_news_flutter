@@ -12,12 +12,10 @@ There are 3 main news categories; Egypt News, Argaam News and Saudi Arabia News.
 	<title>Flutter News</title>
 </head>
 <body>
-		<div>
 			<h2>Application Screens</h2>
-
 			<div>
-<img src="ScreenShots/Screenshot_1552745273.png" atl="Welcome Screen" width="300">
-				<span>Welcome Screen</span>
+<img src="Screenshots/Screenshot_1552745273.png" atl="Burger Menu" width="300">
+				<span>Burger Menu</span>
 			</div>
       </body>
 </html>
