@@ -31,7 +31,7 @@ The application is integrated with Firebase, Analytics and Messaging which allow
 			<img src="Screenshots/Screenshot_1552745352.png" atl="Argaam News" width="300">
 				<span>Argaam News</span>
 			</div>
-			<img src="Screenshots/Screenshot_1552745336" atl="interstitial ad" width="300">
+			<img src="Screenshots/Screenshot_1552745336.png" atl="interstitial ad" width="300">
 				<span>interstitial ad</span>
 			</div>
 			<img src="Screenshots/Screenshot_1552691793.png" atl="Description Page" width="300">
