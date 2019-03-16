@@ -6,15 +6,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3bb7ad3-ae6b-4cf3-97dc-4e2fbf7def48" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/loader.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/4.10.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/4.10.2/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/4.10.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/4.10.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/4.10.2/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/4.10.2/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/4.10.2/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/4.10.2/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/argaam_page.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/articles_page.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
@@ -132,8 +123,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="22" column="38" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="38" />
+            <state relative-caret-position="170">
+              <caret line="157" column="122" selection-start-line="157" selection-start-column="122" selection-end-line="157" selection-end-column="122" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -201,8 +192,10 @@
       <find>sky</find>
       <find>future</find>
       <find>art</find>
-      <find>timer</find>
       <find>url</find>
+      <find>show</find>
+      <find>show</find>
+      <find>timer</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -662,8 +655,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="22" column="38" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="38" />
+        <state relative-caret-position="170">
+          <caret line="157" column="122" selection-start-line="157" selection-start-column="122" selection-end-line="157" selection-end-column="122" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

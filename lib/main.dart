@@ -20,7 +20,7 @@ import './loader.dart';
     : "ca-app-pub-7444470694788180~4898078390";
 
   Timer timer;
-  String url = 'https://newsapi.org/v2/top-headlines?country=ar&apiKey=597ac250047845ad8e1fa41510638df2';
+  String url = 'https://newsapi.org/v2/top-headlines?country=eg&apiKey=597ac250047845ad8e1fa41510638df2';
   String appBarTitle = 'Flutter News';
 
 MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
     _firebaseMessaging.requestNotificationPermissions();
     this._makeRequest();
-    //timer = Timer.periodic(Duration(seconds: 10), (Timer t) => showAd());
+    timer = Timer.periodic(Duration(seconds: 10), (Timer t) => showAd());
 
   }
 
@@ -142,7 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
               title: new Text('Egypt News'),
               onTap: () {
                 Navigator.pop(context);
-                url = 'https://newsapi.org/v2/top-headlines?country=ar&apiKey=597ac250047845ad8e1fa41510638df2';
+                url = 'https://newsapi.org/v2/top-headlines?country=eg&apiKey=597ac250047845ad8e1fa41510638df2';
                 Navigator.push(
                     context,
                     new MaterialPageRoute(
@@ -155,7 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onTap: () {
                 Navigator.pop(context);
                 //appBarTitle = 'Saudi Arabia news';
-                url = "https://newsapi.org/v2/top-headlines?country=ar&apiKey=597ac250047845ad8e1fa41510638df2";
+                url = "https://newsapi.org/v2/top-headlines?sources=google-news-sa&apiKey=597ac250047845ad8e1fa41510638df2";
                 Navigator.push(
                   context,
                   new MaterialPageRoute(
@@ -168,7 +168,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onTap: () {
                 Navigator.pop(context);
                 //appBarTitle='Argaam News';
-                url = 'https://newsapi.org/v2/top-headlines?country=ar&apiKey=597ac250047845ad8e1fa41510638df2';
+                url = 'https://newsapi.org/v2/top-headlines?sources=argaam&apiKey=597ac250047845ad8e1fa41510638df2';
                 Navigator.push(
                     context,
                     new MaterialPageRoute(
